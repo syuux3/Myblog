@@ -1,0 +1,2 @@
+# myblog
+blog of django
