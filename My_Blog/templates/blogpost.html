@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_markdown %}
+
+
+{% block head %}
+  <title>{{ blogpost.title }} - Hatchback walker</title>
+  <meta name="descriptionblogpost" content={{ blogpost.description }}>
+{% endblock head %}
+
+
+
+{% block content %}
+<div class="blog-index">
+
+<div id="banner">
+  <a href="#"><img src="{% static 'My_Blog/images/banner.jpg' %}" alt="banner image" /></a>
+  </div> 
+      <article>
+        <header>
+          <p class="meta">
+            <time pubdate="{{ Article.pub_date }}" >
+              {{ blogpost.pub_date|date:'M'|upper }}
+              {{ blogpost.pub_date|date:"dS"|upper }}, {{ blogpost.pub_date.year }}
+            </time>
+          </p>
+          <h1 class="title-link">
+            <a href={{ blogpost.get_absolute_url }}><b>{{ blogpost.title }}</b></a>
+          </h1>
+        </header>
+        {{ blogpost.body|custom_markdown }}
+
+      </article> 
+      <style type="text/css">
+ <!--
+.hr0{ height:1px;border:none;border-top:1px dashed #0066CC;}
+ -->
+      </style>
+        <hr class="hr0" />
+
+
+{% endblock content %}
