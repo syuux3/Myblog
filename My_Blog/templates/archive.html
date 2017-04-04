@@ -1,26 +1,19 @@
-{% extends 'base.html' %}
+﻿{% extends 'blog_base.html' %}
 {% load static %}
 
+{% block pagecss %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/archive.css' %}" />
+{% endblock pagecss %}
 
- <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/archive.css' %}" />
- 
- 
 {% block content %}
 <div>
   <script type="text/javascript">
     //alert("{{ blogpost.display_html|truncatewords:'50' }}");
-	
   </script>
   {% for category, posts_by_year in data %}
     <article role="article">
-		<style type="text/css">
- <!--
-.hr0{ height:1px;border:none;border-top:1px dashed #0066CC;}
- -->
-
-		</style>
       <header id="category">
-        <h1 class="entry-title" align="right">
+        <h1 class="entry-title">
           {% if category == "programming" %}
             Programming
           {% elif category == "acg" %}
@@ -28,13 +21,11 @@
           {% else %}
             No Category
           {% endif %}
-        </h1><hr class="hr0" />
+        </h1>
       </header>
-	  
       <div id="blog-archives">
         {% for year, blogposts in posts_by_year %}
           <h2>{{year}}</h2>
-	
           {% for blogpost in blogposts %}
             <article>
               <h1>
@@ -43,20 +34,20 @@
               <time datetime="{{ blogpost.pub_date }}">
                 <span class="month">{{ blogpost.pub_date|date:"M"|upper }}</span>
                 <span class="day">{{ blogpost.pub_date.day }}</span>
-                <span class="tags" style="float:right;">
+              </time>
+              <footer>
+                <span class="tags">
                   posted in
                   {% for tag in blogpost.tags.all %}
                     {{ tag.name }},
                   {% endfor %}
-              </time><hr  class="hr0" align="right" width="50%">
+                </span>
+              </footer>
             </article>
           {% endfor %}
         {% endfor %}
-
       </div>
     </article>
   {% endfor %}
 </div>
 {% endblock content %}
-
-

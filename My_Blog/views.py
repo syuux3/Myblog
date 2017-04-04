@@ -25,7 +25,7 @@ def home(request,page=''):
 		args['prev_page'] = page + 1 if page < max_page else None
 		args['newer_page'] = page -1 if page > 1 else None
 		args['sl']= str(3 * (page - 1)) + ':' + str(3 * (page - 1) + 3)
-		return render(request, 'home.html', args)
+		return render(request, 'index.html', args)
 
 
 def blogpost(request,slug,id):
