@@ -10,7 +10,7 @@ if node in dev_machines:
     myblog = os.path.dirname(os.path.dirname(__file__))
     # project dir, contains static and media folder under DEV environment
     PROJECT_DIR = os.path.dirname(myblog)
-    DEBUG = True
+    DEBUG = False
     STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
     STATIC_URL = '/static/'
     MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
@@ -20,9 +20,9 @@ if node in dev_machines:
 else:
     DEBUG = False
     PROJECT_DIR = '/home/laike9m/Envs/blog/My_Blog/'
-    MEDIA_ROOT = '/home/laike9m/media/'
+    MEDIA_ROOT = '/project/myblog/media/'
     MEDIA_URL = '/media/'
-    STATIC_ROOT = '/home/laike9m/static/'
+    STATIC_ROOT = '/project/myblog/static/'
     STATIC_URL = '/static/'
 
     STATICFILES_DIRS = (

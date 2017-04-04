@@ -24,24 +24,33 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'nw9)pjodtj-o$e73c^!n1oii0y%1*odo!in%yjzy!r+8%aq%gx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['192.168.2.88']
+ALLOWED_HOSTS = ['*']
 
-
+DISQUS_API_KEY = 'zXMzvynCNZmvdtxltjQct2E3rb4tct4GpLg3SQH56nkxOBetNTbCWClm9FQJfs9b'
+DISQUS_WEBSITE_SHORTNAME = 'www-syuu-club'
+SITE_ID  =  1
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.admindocs',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',    
     'My_Blog',
     'mytemplatetags',
     'taggit',
+    'pagedown',
+    'django_markdown',
+    'disqus',
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
