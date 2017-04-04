@@ -26,5 +26,6 @@ urlpatterns = [
     url(r'^(?P<slug>[-\w\d]+),(?P<id>\d+)/$', views.blogpost,name = 'blogpost'),
     url('^archive/$', views.archive),
     url(r'^admin/', admin.site.urls),
+    url('^markdown/', include( 'django_markdown.urls')),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
